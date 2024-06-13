@@ -18,7 +18,7 @@ export class ControlledForm extends Component {
     // Method to handle changes in the form fields
     // How: Updates the state with the new values from the form fields
     // Why: To keep the state in sync with the form field values
-    handleNameChange = (event) => {
+    handleInputChange = (event) => {
         const { name, value } = event.target
 
         this.setState({
@@ -26,24 +26,28 @@ export class ControlledForm extends Component {
         })
     }
 
+    // Method to handle form submission
+    // How: Prevents default form submission behavior and logs the form state
+    // Why: To handle form submission logic, such as sending data to a server or performing client-side validation
     handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state)
+        event.preventDefault(); // Prevents default form submission behavior
+        console.log(this.state); // Logs the current state of the form
+        // Additional logic can be added here for form submission, such as sending data to a server
     }
 
     // Render method to display the component
     // Why: To render the form and input elements
-    // How: Uses JSX to create a form with controlled inputs
+    // How: Uses JSX to create a form with controlled inputs and a submit button
     render() {
         return (
             <div>
                 <h2>Please fill out the form below:</h2>
-                <form onClick={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}> {/* Form with onSubmit event handler */}
                     <div>
                         <label htmlFor="id-name">Your Name:</label> {/* Label for the input field */}
                         <input
                             value={this.state.name} // Setting the value from the state
-                            onChange={this.handleNameChange} // Adding an event listener for the onChange event
+                            onChange={this.handleInputChange} // Adding an event listener for the onChange event
                             id="id-name" // Setting the id for the input field
                             name="name" // Setting the name attribute for the input field
                             type="text" // Defining the type of input
@@ -55,7 +59,7 @@ export class ControlledForm extends Component {
                             id="category" // Setting the id for the select field
                             name="category" // Setting the name attribute for the select field
                             value={this.state.category} // Setting the selected value from the state
-                            onChange={this.handleNameChange} // Adding an event listener for the onChange event
+                            onChange={this.handleInputChange} // Adding an event listener for the onChange event
                         >
                             <option value="website">Website Issue</option> {/* Option for Website Issue */}
                             <option value="order">Order Issue</option> {/* Option for Order Issue */}
@@ -68,7 +72,7 @@ export class ControlledForm extends Component {
                             id="id-comments" // Setting the id for the textarea field
                             name="comments" // Setting the name attribute for the textarea field
                             value={this.state.comments} // Setting the value from the state
-                            onChange={this.handleNameChange} // Adding an event listener for the onChange event
+                            onChange={this.handleInputChange} // Adding an event listener for the onChange event
                         />
                     </div>
                     <input type="submit" value="Submit" /> {/* Submit button */}
