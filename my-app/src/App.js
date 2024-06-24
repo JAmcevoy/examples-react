@@ -1,9 +1,9 @@
 import "./App.css";
-import UseEffectCounterContainer from './components/UseEffectCounterContainer'
+import HTTPSRequest from './components/HTTPSRequest'
 
 function App() {
   return <div className="App">
-      <UseEffectCounterContainer />
+      <HTTPSRequest />
     </div>;
 }
 
