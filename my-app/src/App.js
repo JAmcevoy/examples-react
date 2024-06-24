@@ -1,9 +1,9 @@
 import "./App.css";
-import HTTPSRequest from './components/HTTPSRequest'
+import HTTPPost from './components/HTTPPost'
 
 function App() {
   return <div className="App">
-      <HTTPSRequest />
+      <HTTPPost />
     </div>;
 }
 
